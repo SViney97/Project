@@ -5,25 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project"
         mc:Ignorable="d"
-        Title="Shannon's Book Shop" Height="450" Width="800" Loaded="Book_Shop_Loaded">
+        Title="Shannon's Book Shop" Height="491.6" Width="1200" Loaded="Book_Shop_Loaded"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="LBXAuthors" HorizontalAlignment="Left" Height="238" Margin="36,99,0,0" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2" SelectionChanged="LBXAuthors_SelectionChanged"/>
-        <ListBox x:Name="LBXBooks" HorizontalAlignment="Left" Height="235" Margin="159.623,99,0,0" VerticalAlignment="Top" Width="242" Grid.Column="1" SelectionChanged="LBXBooks_SelectionChanged"/>
-        <ListBox x:Name="LBXShoppingCart" HorizontalAlignment="Left" Height="97" Margin="504.623,240,0,0" VerticalAlignment="Top" Width="198" Grid.Column="1"/>
-        <TextBlock x:Name="TBXInformation" HorizontalAlignment="Left" Margin="504.623,99,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="85" Width="198" Grid.Column="1"/>
-        <Button x:Name="BTNAdd" Content="Add" HorizontalAlignment="Left" Margin="406.623,136,0,0" VerticalAlignment="Top" Width="75" FontFamily="Script MT Bold" FontSize="14" Grid.Column="1" Click="BTNAdd_Click"/>
-        <Button x:Name="BTNRemove" Content="Remove" HorizontalAlignment="Left" Margin="406.623,201,0,0" VerticalAlignment="Top" Width="75" FontFamily="Script MT Bold" FontSize="14" Grid.Column="1" Click="BTNRemove_Click"/>
-        <Label Content="Authors" HorizontalAlignment="Left" Margin="36,76,0,0" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="18" Grid.ColumnSpan="2"/>
-        <Label Content="Books" HorizontalAlignment="Left" Margin="159.623,76,0,0" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="18" Grid.Column="1"/>
-        <Label Content="Information" HorizontalAlignment="Left" Margin="502.623,76,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Script MT Bold" Grid.Column="1"/>
-        <Label Content="Shopping Cart" HorizontalAlignment="Left" Margin="504.623,218,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Script MT Bold" Grid.Column="1"/>
-        <TextBlock x:Name="LblCost" HorizontalAlignment="Left" Margin="658.623,222,0,0" TextWrapping="Wrap" Text="€0.00" VerticalAlignment="Top" FontFamily="Script MT Bold" FontSize="19" Grid.Column="1"/>
-        <Label Content="Book Shop" HorizontalAlignment="Left" Margin="281.623,18,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Bold" FontFamily="Script MT Bold" Grid.Column="1"/>
-        <Button x:Name="BTNSave" Content="Save" HorizontalAlignment="Left" Margin="627.623,359,0,0" VerticalAlignment="Top" Width="75" FontFamily="Script MT Bold" FontSize="14" Grid.Column="1"/>
+        
+        <ComboBox Name="CBXBookGenre" Width="149" Height="29" SelectionChanged="CBXBookGenre_SelectionChanged" />
+
+        <ListBox Grid.Row="2" Grid.Column="0" Margin="10" Name="LBXAuthors" SelectionChanged="LBXAuthors_SelectionChanged"/>
+        <ListBox Grid.Row="2" Grid.Column="1" Margin="10" Name="LBXBooks" SelectionChanged="LBXBooks_SelectionChanged"/>
+
+        <Label Content="Book Shop" Grid.Row="0" Grid.Column="1" />
+        <Label Content="Author" Grid.Row="1" Grid.Column="0" />
+        <Label Content="Books" Grid.Row="1" Grid.Column="1" />
+        <Label Content="Information" Grid.Row="1" Grid.Column="3" />
+
+        <TextBlock Name="TBLKBookImage" Grid.Row="2" Grid.Column="4" Margin="10"></TextBlock>
+        
+        <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
+            <Button Content="Add" Width="90" Height="30" Margin="10,60" Click="BTNAdd_Click"/>
+            <Button Content="Remove" Width="90" Height="30" Margin="10" Click="BTNRemove_Click"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2" Grid.Column="3" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Name="TBXInformation" Margin="10,10,0,10" TextWrapping="Wrap" Text="."/>
+            <Label Content="Shoping Cart" Grid.Row="1"/>
+            <TextBlock Name="TBLKCost" Text="€0.00" Grid.Row="1" Grid.Column="1"/>
+            <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Name="LBXShoppingCart"/>
+        </Grid>
+        <Button Grid.Row="3" Grid.Column="3" Name="BTNSave" Content="Save" Width="90" Height="25" Margin="10" Click="BTNSave_Click"/>
+
 
     </Grid>
+    
 </Window>

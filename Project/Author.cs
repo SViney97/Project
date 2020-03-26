@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Author: IComparable
+    
+    public class Author: IComparable
     {
         public string AuthorName { get; set; }
         public List<Book> Books { get; set; }
-
+        
         public Author()
         {
             Books = new List<Book>();
@@ -19,11 +20,9 @@ namespace Project
         public Author(string authorname)
         {
             AuthorName = authorname;
+            
         }
-        public override string ToString()
-        {
-            return $"{AuthorName}";
-        }
+ 
         public int CompareTo(object obj)
         {
             //get name for thing beside current activity
@@ -32,34 +31,40 @@ namespace Project
             Author objectBeside = obj as Author;
             return this.AuthorName.CompareTo(objectBeside.AuthorName);
         }
-
-    }
-    public class Book
-    {
-        public string BookName { get; set; }
-        public DateTime Published { get; set; }
-
-        public decimal Sales { get; set; }
-
-        public Book()
-        {
-
-        }
-        public Book(string bookname, DateTime published, decimal sales)
-        {
-            BookName = bookname;
-            Published = published;
-            Sales = sales;
-        }
-
-        /*public int CompareTo(object obj)
-        {     
-            Book objectBeside = obj as Book;
-            return this.Published.Year.CompareTo(objectBeside.Published.Year);
-        }*/
         public override string ToString()
         {
-            return $"{BookName}";
+            return $"{AuthorName}";
         }
+
     }
 }
+
+#region ComeBackLater
+//public class Horror : Author
+//{
+//    public Horror()
+//    {
+
+//    }
+//    public override string ToString()
+//    {
+//        return (this.AuthorName + "-Horror");
+//    }
+//}
+//public class Play : Author
+//{
+//    public Play()
+//    {
+
+//    }
+//    public override string ToString()
+//    {
+//        return (this.AuthorName + "-Horror");
+//    }
+//}
+
+#endregion ComeBackLater
+
+
+
+
