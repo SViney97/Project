@@ -9,58 +9,75 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}">
     <Grid>
-        <Grid.RowDefinitions>
+        <TabControl TabStripPlacement="Top" Background="{DynamicResource MaterialDesignPaper}">
+            <TabItem Header="BookShop" Width="75">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
 
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
+                    <ComboBox Name="CBXBookGenre" Width="149" Height="29" SelectionChanged="CBXBookGenre_SelectionChanged" Foreground="{DynamicResource MaterialDesignBody}" />
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        
-        <ComboBox Name="CBXBookGenre" Width="149" Height="29" SelectionChanged="CBXBookGenre_SelectionChanged" />
+                    <ListBox Grid.Row="2" Grid.Column="0" Margin="10" Name="LBXAuthors" SelectionChanged="LBXAuthors_SelectionChanged" FontSize="14"/>
+                    <ListBox Grid.Row="2" Grid.Column="1" Margin="10" Name="LBXBooks" SelectionChanged="LBXBooks_SelectionChanged" FontSize="14"/>
 
-        <ListBox Grid.Row="2" Grid.Column="0" Margin="10" Name="LBXAuthors" SelectionChanged="LBXAuthors_SelectionChanged"/>
-        <ListBox Grid.Row="2" Grid.Column="1" Margin="10" Name="LBXBooks" SelectionChanged="LBXBooks_SelectionChanged"/>
+                    <Label Content="Book Shop" Grid.Row="0" Grid.Column="1" FontSize="20" FontWeight="Bold" FontStyle="Italic" />
+                    <Label Content="Author" Grid.Row="1" Grid.Column="0" FontSize="15" />
+                    <Label Content="Books" Grid.Row="1" Grid.Column="1" FontSize="15" />
+                    <Label Content="Information" Grid.Row="1" Grid.Column="3" FontSize="15" />
+                    <Label Content="Book Image" Grid.Row="1" Grid.Column="4" FontSize="15" />
 
-        <Label Content="Book Shop" Grid.Row="0" Grid.Column="1" />
-        <Label Content="Author" Grid.Row="1" Grid.Column="0" />
-        <Label Content="Books" Grid.Row="1" Grid.Column="1" />
-        <Label Content="Information" Grid.Row="1" Grid.Column="3" />
+                    <Image Name="IMGBookCover" Grid.Row="2" Grid.Column="4" Margin="10"></Image>
 
-        <TextBlock Name="TBLKBookImage" Grid.Row="2" Grid.Column="4" Margin="10"></TextBlock>
-        
-        <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
-            <Button Content="Add" Width="90" Height="30" Margin="10,60" Click="BTNAdd_Click"/>
-            <Button Content="Remove" Width="90" Height="30" Margin="10" Click="BTNRemove_Click"/>
-        </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="2" Margin="10">
+                        <Button Content="Add" Width="90" Height="30" Margin="10,60" Click="BTNAdd_Click"/>
+                        <Button Content="Remove" Width="90" Height="30" Margin="10" Click="BTNRemove_Click"/>
+                    </StackPanel>
 
-        <Grid Grid.Row="2" Grid.Column="3" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="2" Grid.Column="3" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Name="TBXInformation" Margin="10,10,0,10" TextWrapping="Wrap" Text="."/>
-            <Label Content="Shoping Cart" Grid.Row="1"/>
-            <TextBlock Name="TBLKCost" Text="€0.00" Grid.Row="1" Grid.Column="1"/>
-            <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Name="LBXShoppingCart"/>
-        </Grid>
-        <Button Grid.Row="3" Grid.Column="3" Name="BTNSave" Content="Save" Width="90" Height="25" Margin="10" Click="BTNSave_Click"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Name="TBXInformation" Foreground="{DynamicResource MaterialDesignBody}" Margin="10,10,0,10" TextWrapping="Wrap" FontSize="14"/>
+                        <Label Content="Shoping Cart" Grid.Row="1" FontSize="15"/>
+                        <TextBlock Name="TBLKCost" Text="€0.00" Grid.Row="1" Grid.Column="1" Foreground="{DynamicResource MaterialDesignBody}" FontSize="14" />
+                        <ListBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Name="LBXShoppingCart" FontSize="14"/>
+                    </Grid>
+                    <Button Grid.Row="3" Grid.Column="3" Name="BTNSave" Content="Save" Width="90" Height="25" Margin="10" Click="BTNSave_Click"/>
 
 
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Order Table" Width="75">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="8*"/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Content="OrderTable_Button" Height="30" Width="100" Name="Ex1Button" Click="TabOrderTable_Click"/>
+                    <DataGrid Grid.Row="1" Name="OrdersDgVDisplay" Margin="25"></DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
+    
     
 </Window>

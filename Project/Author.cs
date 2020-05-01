@@ -16,13 +16,10 @@ namespace Project
         {
             Books = new List<Book>();
         }
-
         public Author(string authorname)
         {
-            AuthorName = authorname;
-            
+            AuthorName = authorname;       
         }
- 
         public int CompareTo(object obj)
         {
             //get name for thing beside current activity
@@ -38,32 +35,6 @@ namespace Project
 
     }
 }
-
-#region ComeBackLater
-//public class Horror : Author
-//{
-//    public Horror()
-//    {
-
-//    }
-//    public override string ToString()
-//    {
-//        return (this.AuthorName + "-Horror");
-//    }
-//}
-//public class Play : Author
-//{
-//    public Play()
-//    {
-
-//    }
-//    public override string ToString()
-//    {
-//        return (this.AuthorName + "-Horror");
-//    }
-//}
-
-#endregion ComeBackLater
 
 
 
